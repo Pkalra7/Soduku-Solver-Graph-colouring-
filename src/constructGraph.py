@@ -1,4 +1,4 @@
-from easyThree import sudokuInstance
+from easyFour import sudokuInstance
 
 labeledNodes={}
 
@@ -27,7 +27,8 @@ def buildgraph(sudokuInstance):
         
 
         sudokuGraph={}
-        
+
+         
         for vertex in range(1,82):
                 sudokuGraph[vertex]=[]
 
@@ -124,23 +125,6 @@ def initialColouring(sudokuInstance,graph):
                 for j in range(1,10):
                         if sudokuInstance[i][j]!=0:
                                 labeledNodes[9*(i-1)+j]=sudokuInstance[i][j]
-        
-        for this in labeledNodes:
-                for other in labeledNodes:
-                        if this!=other and labeledNodes[this]!=labeledNodes[other]:
-                                if other not in graph[this]:
-                                        graph[this].append(other)
-                                        if this not in graph[other]:
-                                                graph[other].append(this)
-        
-        for thisOne in labeledNodes:
-                for otherOne in labeledNodes:
-                        if thisOne!=otherOne and labeledNodes[thisOne]==labeledNodes[otherOne]:
-                                for node in graph[otherOne]:
-                                        if node not in graph[thisOne] and node!=thisOne:
-                                                graph[thisOne].append(node)
-     
-        
                                
         return graph
         
