@@ -3,7 +3,7 @@ import cProfile
 import re
 import math
 from constructGraph import labeledNodes
-from easyThree import sudokuInstance
+from easyOne import sudokuInstance
 
 #this prints out the sudoku puzzle to console
 def print_puzzle(sudokuInstance):

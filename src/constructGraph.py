@@ -1,7 +1,7 @@
-from easyFour import sudokuInstance
+from easyOne import sudokuInstance
 
 labeledNodes={}
-
+permanentNodes=[]
 def buildgraph(sudokuInstance):
 
         rowVert=[]
@@ -119,12 +119,18 @@ def addGridEdges(graph,bGrid):
 
 def initialColouring(sudokuInstance,graph):
         #use global variable to use in other files
+        index=1
         global labeledNodes
-        
+        global permanentNodes
         for i in range(1,10):
                 for j in range(1,10):
                         if sudokuInstance[i][j]!=0:
                                 labeledNodes[9*(i-1)+j]=sudokuInstance[i][j]
+                                permanentNodes.insert(index,(9*(i-1)+j))
+                                index+=1
+
+        print(permanentNodes)
+         
                                
         return graph
         
